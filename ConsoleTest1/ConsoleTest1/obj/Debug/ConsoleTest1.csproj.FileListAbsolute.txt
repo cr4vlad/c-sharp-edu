@@ -1,0 +1,12 @@
+C:\Projects\C#\ConsoleTest1\ConsoleTest1\bin\Debug\ConsoleTest1.exe.config
+C:\Projects\C#\ConsoleTest1\ConsoleTest1\bin\Debug\ConsoleTest1.exe
+C:\Projects\C#\ConsoleTest1\ConsoleTest1\bin\Debug\ConsoleTest1.pdb
+C:\Projects\C#\ConsoleTest1\ConsoleTest1\obj\Debug\ConsoleTest1.csprojResolveAssemblyReference.cache
+C:\Projects\C#\ConsoleTest1\ConsoleTest1\obj\Debug\ConsoleTest1.exe
+C:\Projects\C#\ConsoleTest1\ConsoleTest1\obj\Debug\ConsoleTest1.pdb
+C:\Projects\C#\c-sharp-edu\ConsoleTest1\ConsoleTest1\bin\Debug\ConsoleTest1.exe.config
+C:\Projects\C#\c-sharp-edu\ConsoleTest1\ConsoleTest1\obj\Debug\ConsoleTest1.exe
+C:\Projects\C#\c-sharp-edu\ConsoleTest1\ConsoleTest1\obj\Debug\ConsoleTest1.pdb
+C:\Projects\C#\c-sharp-edu\ConsoleTest1\ConsoleTest1\bin\Debug\ConsoleTest1.exe
+C:\Projects\C#\c-sharp-edu\ConsoleTest1\ConsoleTest1\bin\Debug\ConsoleTest1.pdb
+C:\Projects\C#\c-sharp-edu\ConsoleTest1\ConsoleTest1\obj\Debug\ConsoleTest1.csprojResolveAssemblyReference.cache
