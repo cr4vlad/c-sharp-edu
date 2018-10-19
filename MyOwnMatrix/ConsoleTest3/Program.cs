@@ -20,10 +20,19 @@ namespace MyOwnMatrix
             matrix.WriteMatrix();
             matrix = matrix - 10;
             matrix.WriteMatrix();
+            Console.WriteLine("matrix2");
             Matrix matrix2 = new Matrix();
             matrix2.WriteMatrix();
             matrix2 -= matrix;
             matrix2.WriteMatrix();
+            int[,] mat = (int[,])matrix;
+            matrix2 = mat;
+            matrix2.WriteMatrix();
+            Console.WriteLine("Transpose:");
+            matrix.Transpose();
+            matrix.WriteMatrix();
+            Matrix.Transpose(matrix);
+            matrix.WriteMatrix();
 
             Console.ReadKey();
         }
@@ -42,6 +51,15 @@ namespace MyOwnMatrix
             {
                 numbers[i, j] = value;
             }
+        }
+
+        public static implicit operator Matrix(int[,] nums)
+        {
+            return new Matrix { numbers = nums };
+        }
+        public static explicit operator int[,](Matrix matrix)
+        {
+            return matrix.numbers;
         }
 
         public void WriteMatrix()
