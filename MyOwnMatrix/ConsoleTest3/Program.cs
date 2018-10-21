@@ -11,7 +11,7 @@ namespace MyOwnMatrix
         static void Main(string[] args)
         {
             Matrix matrix = new Matrix();
-            matrix.WriteMatrix();
+            matrix.WriteMatrix("matrix:");
             matrix[0, 0] = 11;
             matrix[1, 0] = 12;
             matrix[2, 0] = 13;
@@ -20,19 +20,19 @@ namespace MyOwnMatrix
             matrix.WriteMatrix();
             matrix = matrix - 10;
             matrix.WriteMatrix();
-            Console.WriteLine("matrix2");
             Matrix matrix2 = new Matrix();
-            matrix2.WriteMatrix();
+            matrix2.WriteMatrix("matrix2:");
             matrix2 -= matrix;
             matrix2.WriteMatrix();
             int[,] mat = (int[,])matrix;
             matrix2 = mat;
             matrix2.WriteMatrix();
-            Console.WriteLine("Transpose:");
             matrix.Transpose();
-            matrix.WriteMatrix();
+            matrix.WriteMatrix("Transpose matrix(first one):");
             Matrix.Transpose(matrix);
             matrix.WriteMatrix();
+            Console.WriteLine("Matrices equal?: " + matrix.Equals(matrix2));
+            //Console.WriteLine(matrix.ToString());
 
             Console.ReadKey();
         }
@@ -53,20 +53,39 @@ namespace MyOwnMatrix
             }
         }
 
-        public static implicit operator Matrix(int[,] nums)
+        public static implicit operator Matrix(int[,] nums) // int[,] to matrix
         {
             return new Matrix { numbers = nums };
         }
-        public static explicit operator int[,](Matrix matrix)
+        public static explicit operator int[,](Matrix matrix) // matrix to int[,] , using (int[,])
         {
             return matrix.numbers;
         }
 
-        public void WriteMatrix()
+        public void WriteMatrix() // or ToString
         {
             Console.WriteLine("Matrix:");
             
             int rows = numbers.GetUpperBound(0) + 1; // GetUpperBound(dimension) returns index of the last element in exact dimension
+            int columns = numbers.Length / rows;
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    Console.Write(numbers[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public void WriteMatrix(string title)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(title);
+            Console.ResetColor();
+
+            int rows = numbers.GetUpperBound(0) + 1;
             int columns = numbers.Length / rows;
 
             for (int i = 0; i < rows; i++)
@@ -206,5 +225,33 @@ namespace MyOwnMatrix
 
             return result;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() != this.GetType()) return false;
+ 
+            Matrix matrix2 = (Matrix)obj;
+            return (this.numbers == matrix2.numbers);
+        }
+
+        /*
+        public override string ToString()
+        {
+            int rows = numbers.GetUpperBound(0) + 1; // GetUpperBound(dimension) returns index of the last element in exact dimension
+            int columns = numbers.Length / rows;
+
+            string result = "";
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    result += numbers[i, j] + "\t";
+                }
+                result += "\n";
+            }
+            return result;
+        }
+        */
     }
 }
