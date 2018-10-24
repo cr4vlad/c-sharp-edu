@@ -79,6 +79,17 @@ namespace ConsoleTest1
 
             Console.WriteLine((int)Times.Night); // не очевидное поведение
 
+            // extension methods
+            Console.WriteLine("Extension methods");
+
+            string s = "Привет мир";
+            char c = 'и';
+            int n = s.WordCount(c);
+            Console.WriteLine(n);
+
+            List<int> numbers = new List<int> { 1, 2, 3, 1, 4, 5, 1, 6, 7, 8, 9 };
+            Console.WriteLine("Amount of \"1\" in list: " + numbers.CountOf<int>(1));
+
             Console.ReadKey();
         }
 
@@ -166,6 +177,34 @@ namespace ConsoleTest1
             Afternoon,
             Evening = 1,
             Night
+        }
+    }
+
+    public static class StringExtension
+    {
+        public static int WordCount(this string str, char c)
+        {
+            int counter = 0;
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] == c)
+                    counter++;
+            }
+            return counter;
+        }
+    }
+
+    public static class ListEx
+    {
+        public static int CountOf<T>(this List<T> list, T item)
+        {
+            int result = 0;
+            foreach (T elem in list)
+            {
+                if (elem.Equals(item))
+                    result++;
+            }
+            return result;
         }
     }
 }
